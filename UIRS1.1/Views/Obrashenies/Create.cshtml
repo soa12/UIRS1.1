@@ -71,21 +71,7 @@
         </div>
     </div>
 
-    @*<button id="button1" onclick="Click()">Открыть параметры</button><br><br>*@
-    @*<script>
-        $(document).ready(function() {
-        
 
-        function Click() {
-
-            $("#dopdate").fadeToggle(1500);
-        }
-        });
-    </script >
-        
-
-    <div class="dopdate" id ="dapdate">*@
-    <div class="col-md-6">
     <div class="form-group">
         @Html.LabelFor(model => model.Date, htmlAttributes: new {@class = "control-label col-md-2"})
         <div class="col-md-10">
@@ -309,14 +295,13 @@
             </div>
         </div>
     </div>
-    </div>
 
     @*dsafsasdafsdafasdfsafddsa
         ksdafhsadhfk
         jsdfkjsdjkfkasdf
         f*@
 
-    <div class="col-md-6">
+  
             <div class="form-group">
                 @Html.LabelFor(model => model.FaultyBus, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -513,21 +498,20 @@
                     @Html.ValidationMessageFor(model => model.ID_Point, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
-    @*</div>*@
-        <div class="col-md-offset-4">
+    @*</div>
+    <div class="col-md-offset-10">*@
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-4">
+            <div class="col-md-offset-2 col-md-10">
                 <div class="g-recaptcha" data-sitekey="6LesiCQUAAAAAEpnkZBI6lLgUNT6HEd2bTb2FEuW"></div>
             </div>
         </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-4">
+                <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Отправить" class="btn btn-primary btn-lg btn-block"/>
                 </div>
             </div>
-            </div>
+            @*</div>*@
 </div>
 }
 

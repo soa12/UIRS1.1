@@ -130,7 +130,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ObrasheniesController.cs" />
     <Compile Include="Data\AUTO_STOP.cs" />
     <Compile Include="Data\MODEL.cs" />
@@ -168,7 +167,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -179,15 +180,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Obrashenies\Create.cshtml" />
-    <Content Include="Views\Obrashenies\Delete.cshtml" />
-    <Content Include="Views\Obrashenies\Details.cshtml" />
-    <Content Include="Views\Obrashenies\Edit.cshtml" />
-    <Content Include="Views\Obrashenies\Index.cshtml" />
-    <Content Include="Views\Obrashenies\AfterSend.cshtml" />
     <Content Include="Views\Obrashenies\AfterSubmit.cshtml" />
   </ItemGroup>
   <ItemGroup>
