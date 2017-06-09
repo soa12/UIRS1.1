@@ -16,27 +16,7 @@ namespace UIRS1._1.Controllers
     {
         private UIRS_DB db = new UIRS_DB();
 
-        // GET: Obrashenies
-        public ActionResult Index()
-        {
-            var obrashenies = db.Obrashenies.Include(o => o.POINT).Include(o => o.ROUTE).Include(o => o.VEHICLE);
-            return View(obrashenies.ToList());
-        }
-
-        // GET: Obrashenies/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Obrashenies obrashenies = db.Obrashenies.Find(id);
-            if (obrashenies == null)
-            {
-                return HttpNotFound();
-            }
-            return View(obrashenies);
-        }
+       
 
         // GET: Obrashenies/Create
         public ActionResult Create()
@@ -76,69 +56,6 @@ namespace UIRS1._1.Controllers
             ViewBag.ID_Route = new SelectList(db.ROUTE, "ID", "NUMBER", obrashenies.ID_Route);
             ViewBag.ID_Vehicle = new SelectList(db.VEHICLE, "ID", "STATE_NUMBER", obrashenies.ID_Vehicle);
             return View(obrashenies);
-        }
-
-        // GET: Obrashenies/Edit/5
-        public ActionResult Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Obrashenies obrashenies = db.Obrashenies.Find(id);
-            if (obrashenies == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ID_Point = new SelectList(db.POINT, "ID", "NAME", obrashenies.ID_Point);
-            ViewBag.ID_Route = new SelectList(db.ROUTE, "ID", "NUMBER", obrashenies.ID_Route);
-            ViewBag.ID_Vehicle = new SelectList(db.VEHICLE, "ID", "STATE_NUMBER", obrashenies.ID_Vehicle);
-            return View(obrashenies);
-        }
-
-        // POST: Obrashenies/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_Obrasheniya,Lastname,FirstName,Surname,Email,Phone,Texttreatment,Date,Time,Waiting,FIOdriver,FIOconductor,FIOdispetcher,Earlyend,LateBeginning,BigInterval,BreachShedule,StopTravel,ViolationLanding,OutputWithoutContract,ViolationOfTrafficPatterns,VioletionOfTrafficRules,ConflictWithConductor,ConflictWithDriver,WrongSurrendere,NotAnnouncedBusstop,SmokingInCabin,DiscussionOnPhone,LoudMusic,LackOfTickets,FaultyBus,SmellOfGus,PoorSanCondition,WorkBoards,WorkSite,WorkSmsService,WorkOnlineMap,WorkWebBoards,WorkMobileApplication,PoorStateReversalArea,PoorStateBusstop,DisadvantageOfInfrastructures,ConflictWithDispather,ComplianceWithShedule,GoodQualityService,CourteousStaff,GoodTransportCondition,ID_Route,ID_Vehicle,ID_Point")] Obrashenies obrashenies)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(obrashenies).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ID_Point = new SelectList(db.POINT, "ID", "NAME", obrashenies.ID_Point);
-            ViewBag.ID_Route = new SelectList(db.ROUTE, "ID", "NUMBER", obrashenies.ID_Route);
-            ViewBag.ID_Vehicle = new SelectList(db.VEHICLE, "ID", "STATE_NUMBER", obrashenies.ID_Vehicle);
-            return View(obrashenies);
-        }
-
-        // GET: Obrashenies/Delete/5
-        public ActionResult Delete(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Obrashenies obrashenies = db.Obrashenies.Find(id);
-            if (obrashenies == null)
-            {
-                return HttpNotFound();
-            }
-            return View(obrashenies);
-        }
-
-        // POST: Obrashenies/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
-        {
-            Obrashenies obrashenies = db.Obrashenies.Find(id);
-            db.Obrashenies.Remove(obrashenies);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
